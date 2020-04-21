@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+
+    <title>Carlist</title>
+</head>
+
+<body>
+<header>CarList</header>
+
+<div>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Price</th>
+        </tr>
+
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.getBrand().getBrandName()}">Brand</td>
+            <td th:text="${car.getModel()}">Model</td>
+            <td th:text="${car.getYear()}">Year</td>
+            <td th:text="${car.getPrice()}">Price</td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+</body>
+</html>
