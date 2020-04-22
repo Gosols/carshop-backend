@@ -7,19 +7,90 @@
     <title>Carlist</title>
     <link href="../Styles.css" type="text/css" rel="stylesheet"
           th:href="@{../Styles.css}">
+    <style>
+        body {
+            text-align: center;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        }
+        h1.main{
+            font-size:large;
+        }
+
+        table.center {
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+            border-collapse: collapse;
+        }
+
+        table.center, th, td {
+            border: 1px solid black;
+        }
+
+        a.button {
+            text-decoration: none;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            padding-left: 3px;
+            padding-right: 3px;
+            transition-duration: 0.3s;
+        }
+        a.button:hover{
+            background-color: darkgrey;
+        }
+        input.button{
+            margin-bottom: 5px;
+            text-decoration: none;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            padding-left: 3px;
+            padding-right: 3px;
+            transition-duration: 0.3s;
+        }
+        input.button:hover{
+            background-color: darkgrey;
+        }
+
+        table.carbuttons {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        a.carbutton {
+            width: 100%;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: white;
+            color: black;
+
+        }
+        a.carbutton:hover{
+            text-decoration: underline;
+            color: darkgrey;
+        }
+
+        td.wtf{
+            width: 10%;
+        }
+    </style>
 </head>
 
 <body>
+
+<header><h1 class="main">CarList</h1></header>
 <form th:action="@{/logout}" method=
         "post">
-    <input id="addbutton" type="submit" value="Sign Out"/>
+    <input class="button" type="submit" value="Sign Out"/>
 </form>
-<header><h3>CarList</h3></header>
 
 <div>
-    <a href="/addcar" id="addbutton">Add Car</a>
+    <a href="/addcar" class="button">Add Car</a>
 
-    <table>
+    <table class="center">
         <tbody>
         <tr>
             <th>Brand</th>
@@ -27,6 +98,7 @@
             <th>Fuel</th>
             <th>Year</th>
             <th>Price (€)</th>
+            <th></th>
         </tr>
 
         <tr th:each="car : ${cars}">
@@ -35,11 +107,29 @@
             <td th:text="${car.getFuel()}">Fuel</td>
             <td th:text="${car.getYear()}">Year</td>
             <td th:text="${car.getPrice()}">Price</td>
-            <td><a th:href="@{cars/{id}(id=${car.getId()})}">View</a> <br> <a sec:authorize="hasRole('ADMIN')"
-                                                                              th:href="@{/editcar/{id}(id=${car.getId()})}">Edit</a>
-                <br>
-                <a sec:authorize="hasRole('ADMIN')"
-                   th:href="@{/deletecar/{id}/confirm (id=${car.getId()})}">Delete</a></td>
+            <td class="wtf">
+                <table class="carbuttons">
+                    <tr>
+                        <td>
+                            <a class="carbutton" th:href="@{cars/{id}(id=${car.getId()})}">View</a>
+
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="carbutton" sec:authorize="hasRole('ADMIN')"
+                               th:href="@{/editcar/{id}(id=${car.getId()})}">Edit</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="carbutton" sec:authorize="hasRole('ADMIN')"
+                               th:href="@{/deletecar/{id}/confirm (id=${car.getId()})}">Delete</a>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
 
         </tr>
 
