@@ -11,7 +11,7 @@
 <h1 th:text="${car.get().getBrand().getBrandName()} + ' ' + ${car.get().getModel()} + ' ' + ${car.get().year}"></h1>
 <h2>Are you sure you want to delete this car?</h2>
 <a th:href="@{../../deletecar/{id}(id=${car.get().getId()})}">Yes</a>
-<a href="../../cars">No</a>
+<a href="/cars">No</a>
 
 </body>
 </html>

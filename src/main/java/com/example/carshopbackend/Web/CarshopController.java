@@ -65,7 +65,7 @@ public class CarshopController {
     @RequestMapping(value = "/deletecar/{id}", method = RequestMethod.GET)
     private String deleteCar(@PathVariable("id") Long id) {
         crepo.deleteById(id);
-        return "redirect:cars";
+        return "redirect:/cars";
     }
 
     @RequestMapping(value = "/login")
