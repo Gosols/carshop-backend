@@ -1,9 +1,6 @@
 package com.example.carshopbackend;
 
-import com.example.carshopbackend.domain.Brand;
-import com.example.carshopbackend.domain.BrandRepo;
-import com.example.carshopbackend.domain.Car;
-import com.example.carshopbackend.domain.CarRepo;
+import com.example.carshopbackend.domain.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -20,8 +17,15 @@ public class CarshopBackendApplication {
     }
 
     @Bean
-    public CommandLineRunner CarshopCLR(CarRepo crepo, BrandRepo brepo) {
+    public CommandLineRunner CarshopCLR(CarRepo crepo, BrandRepo brepo, UserRepository urepo) {
         return (args) -> {
+
+            urepo.save(new User("user"
+                    ,
+                    "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER"));
+            urepo.save(new User("admin"
+                    ,
+                    "$2y$12$VFD6dmaRBB5gnw9Gb7pJ8OBuBRFCvd8f82sVa0va7y5G6wL76Zade", "ADMIN"));
 
             brepo.save(new Brand("Mercedes Benz"));
             brepo.save(new Brand("BMW"));

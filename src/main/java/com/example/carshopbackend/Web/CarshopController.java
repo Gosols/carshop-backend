@@ -68,6 +68,11 @@ public class CarshopController {
         return "redirect:cars";
     }
 
+    @RequestMapping(value = "/login")
+    public String login() {
+        return "login";
+    }
+
     //REST
 
 

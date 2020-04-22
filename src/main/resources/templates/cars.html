@@ -10,10 +10,14 @@
 </head>
 
 <body>
+<form th:action="@{/logout}" method=
+        "post">
+    <input id="addbutton" type="submit" value="Sign Out"/>
+</form>
 <header><h3>CarList</h3></header>
 
 <div>
-    <a id="addbutton" href="/addcar">New Car</a>
+    <a href="/addcar" id="addbutton"></a>
 
     <table>
         <tbody>
@@ -31,9 +35,11 @@
             <td th:text="${car.getFuel()}">Fuel</td>
             <td th:text="${car.getYear()}">Year</td>
             <td th:text="${car.getPrice()}">Price</td>
-            <td><a th:href="@{cars/{id}(id=${car.getId()})}">View</a> <br> <a
-                    th:href="@{/editcar/{id}(id=${car.getId()})}">Edit</a> <br> <a
-                    th:href="@{/deletecar/{id}/confirm (id=${car.getId()})}">Delete</a></td>
+            <td><a th:href="@{cars/{id}(id=${car.getId()})}">View</a> <br> <a sec:authorize="hasRole('ADMIN')"
+                                                                              th:href="@{/editcar/{id}(id=${car.getId()})}">Edit</a>
+                <br>
+                <a sec:authorize="hasRole('ADMIN')"
+                   th:href="@{/deletecar/{id}/confirm (id=${car.getId()})}">Delete</a></td>
 
         </tr>
 
