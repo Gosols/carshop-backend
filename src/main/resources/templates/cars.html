@@ -5,27 +5,36 @@
 <head>
 
     <title>Carlist</title>
+    <link href="../Styles.css" type="text/css" rel="stylesheet"
+          th:href="@{../Styles.css}">
 </head>
 
 <body>
-<header>CarList</header>
+<header><h3>CarList</h3></header>
 
 <div>
+    <a id="addbutton" href="/addcar">New Car</a>
 
     <table>
         <tbody>
         <tr>
             <th>Brand</th>
             <th>Model</th>
+            <th>Fuel</th>
             <th>Year</th>
-            <th>Price</th>
+            <th>Price (€)</th>
         </tr>
 
         <tr th:each="car : ${cars}">
             <td th:text="${car.getBrand().getBrandName()}">Brand</td>
             <td th:text="${car.getModel()}">Model</td>
+            <td th:text="${car.getFuel()}">Fuel</td>
             <td th:text="${car.getYear()}">Year</td>
             <td th:text="${car.getPrice()}">Price</td>
+            <td><a th:href="@{cars/{id}(id=${car.getId()})}">View</a> <br> <a
+                    th:href="@{/editcar/{id}(id=${car.getId()})}">Edit</a> <br> <a
+                    th:href="@{/deletecar/{id}/confirm (id=${car.getId()})}">Delete</a></td>
+
         </tr>
 
         </tbody>

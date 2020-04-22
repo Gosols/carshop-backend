@@ -15,17 +15,19 @@ public class Car {
     @JoinColumn(name = "brandid")
     private Brand brand;
     private String model;
+    private String fuel;
     private int year;
     private double price;
 
     public Car() {
     }
 
-    public Car(Brand brand, String model, int year, double price) {
+    public Car(Brand brand, String model,String fuel, int year, double price) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.price = price;
+        this.fuel = fuel;
     }
 
     public Long getId() {
@@ -50,6 +52,14 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(String fuel) {
+        this.fuel = fuel;
     }
 
     public int getYear() {

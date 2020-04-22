@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header><h3>New Car</h3></header>
+
+<form th:object="${car}" th:action="@{/save}" method="post"
+      action="#">
+    <label>Brand</label>
+    <br>
+    <select class="form-control" th:field="*{brand}">
+        <option th:each="brand: ${brands}" th:value="${brand.getId()}" th:text="${brand.getBrandName()}"></option>
+    </select>
+    <br>
+    <label>Model</label>
+    <br>
+    <select class="form-control" th:field="*{model}">
+
+        <option disabled="disabled" value="----------">----------</option>
+        <option disabled="disabled" value="Mercedes Benz">Mercedes Benz</option>
+        <option disabled="disabled" value="----------">----------</option>
+
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="E">E</option>
+        <option value="S">S</option>
+        <option value="CLA">CLA</option>
+        <option value="CLS">CLS</option>
+        <option value="GLC">GLC</option>
+        <option value="GLE">GLE</option>
+        <option value="AMG GT">AMG GT</option>
+        <option value="G">G</option>
+        <option value="GLA">GLB SUV</option>
+        <option value="GLS">GLS</option>
+
+        <option disabled="disabled" value="----------">----------</option>
+        <option disabled="disabled" value="Audi">Audi</option>
+        <option disabled="disabled" value="----------">----------</option>
+
+        <option value="A1">A1</option>
+        <option value="A3">A3</option>
+        <option value="A4">A4</option>
+        <option value="A5">A5</option>
+        <option value="A6">A6</option>
+        <option value="A7">A7</option>
+        <option value="A8">A8</option>
+        <option value="Q2">Q2</option>
+        <option value="Q3">Q3</option>
+        <option value="Q5">Q5</option>
+        <option value="Q7">Q7</option>
+        <option value="Q8">Q8</option>
+        <option value="TT">TT</option>
+        <option value="R8">R8</option>
+
+        <option disabled="disabled" value="----------">----------</option>
+        <option disabled="disabled" value="BMW">BMW</option>
+        <option disabled="disabled" value="----------">----------</option>
+
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="X1">X1</option>
+        <option value="X2">X2</option>
+        <option value="X3">X3</option>
+        <option value="X4">X4</option>
+        <option value="X5">X5</option>
+        <option value="Z4">Z4</option>
+
+        <option disabled="disabled" value="----------">----------</option>
+        <option disabled="disabled" value="Ford">Ford</option>
+        <option disabled="disabled" value="----------">----------</option>
+
+        <option value="Fiesta">Fiesta</option>
+        <option value="Focus">Focus</option>
+        <option value="Kuga">Kuga</option>
+        <option value="Mondeo">Mondeo</option>
+        <option value="Mustang">Mustang</option>
+        <option value="S-Max">S-Max</option>
+        <option value="Explorer">Explorer</option>
+        <option value="Ranger">Ranger</option>
+        <option value="Transit">Transit</option>
+
+        <option disabled="disabled" value="----------">----------</option>
+        <option disabled="disabled" value="Opel">Opel</option>
+        <option disabled="disabled" value="----------">----------</option>
+
+        <option value="Astra">Astra</option>
+        <option value="Corsa">Corsa</option>
+        <option value="Insignia">Insignia</option>
+        <option value="Combo">Combo</option>
+
+        <option disabled="disabled" value="----------">----------</option>
+        <option disabled="disabled" value="Porsche">Porsche</option>
+        <option disabled="disabled" value="----------">----------</option>
+
+        <option value="Taycan">Taycan</option>
+        <option value="Panamera">Panamera</option>
+        <option value="Macan">Macan</option>
+        <option value="Cayenne">Cayenne</option>
+        <option value="911">911</option>
+
+        <option disabled="disabled" value="----------">----------</option>
+        <option disabled="disabled" value="Volkswagen">Volkswagen</option>
+        <option disabled="disabled" value="----------">----------</option>
+
+        <option value="Polo">Polo</option>
+        <option value="Golf">Golf</option>
+        <option value="Passat">Passat</option>
+        <option value="Arteon">Arteon</option>
+        <option value="Touran">Touran</option>
+        <option value="Tiguan">Tiguan</option>
+        <option value="Caddy">Caddy</option>
+
+    </select>
+    <br>
+    <label>Fuel</label>
+    <br>
+    <select class="form-control" th:field="*{fuel}">
+        <option value="Gasoline">Gasoline</option>
+        <option value="Diesel">Diesel</option>
+    </select>
+    <br>
+    <label>Year</label>
+    <br>
+    <input type="number" th:field="*{year}"/>
+    <br>
+    <label>Price</label>
+    <br>
+    <input type="number" th:field="*{price}"/>
+    <br>
+    <input type="submit" value="Add"/>
+    <br>
+    <a href="../cars">Cancel</a>
+</form>
+
+</body>
+</html>

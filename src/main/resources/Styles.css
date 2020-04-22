@@ -1,0 +1,79 @@
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+		'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+table, th, td {
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid #282c34;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+}
+
+th {
+	background-color: #282c34;
+	color: white;
+}
+
+#button:hover, #addbutton:hover {
+	background-color: #3c4454;
+}
+
+input {
+	width: 150px;
+}
+
+header {
+	background-color: #282c34;
+	min-height: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+#button, #addbutton {
+	background-color: #282c34;
+	color: white;
+	border: none;
+	display: inline-block;
+	padding: 10px;
+	text-decoration: none;
+	transition-duration: 0.3s;
+}
+
+#add {
+	margin: auto;
+	max-width: 500px;
+	text-align: center;
+}
+
+listelements {
+	text-align: center;
+}
+
+#content {
+	max-width: 500px;
+	margin: auto;
+	text-align: center;
+}
+
+#addbutton {
+	margin: 10px;
+	width: 130px;
+}

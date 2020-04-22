@@ -27,11 +27,14 @@ public class CarshopBackendApplication {
             brepo.save(new Brand("BMW"));
             brepo.save(new Brand("Ford"));
             brepo.save(new Brand("Audi"));
+            brepo.save(new Brand("Opel"));
+            brepo.save(new Brand("Porsche"));
+            brepo.save(new Brand("Volkswagen"));
 
-            crepo.save(new Car(brepo.findByBrandName("Ford"), "Mondeo", 2018, 30000));
-            crepo.save(new Car(brepo.findByBrandName("BMW"), "500", 2019, 60000));
-            crepo.save(new Car(brepo.findByBrandName("Audi"), "A7", 2020, 100000));
 
+            crepo.save(new Car(brepo.findByBrandName("Ford"), "Mondeo", "Gasoline", 2018, 30000));
+            crepo.save(new Car(brepo.findByBrandName("BMW"), "500", "Diesel", 2019, 60000));
+            crepo.save(new Car(brepo.findByBrandName("Audi"), "A7", "Diesel", 2020, 100000));
 
 
         };

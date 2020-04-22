@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{../cars}">Back</a>
+<h1 th:text="${car.get().getBrand().getBrandName()} + ' ' +  ${car.get().getModel()} +' '+ ${car.get().getYear()}"></h1>
+<div>
+    <h3 th:text="'Description for this ' + ${car.get().getBrand().getBrandName()}"></h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam turpis est, euismod nec dui sed, scelerisque
+        mattis
+        metus. Vestibulum magna tortor, rutrum id lorem quis, luctus facilisis sem. Maecenas laoreet consequat aliquam.
+        Nulla sed cursus massa. Pellentesque nec sollicitudin leo. Interdum et malesuada fames ac ante ipsum primis in
+        faucibus. Sed ut sagittis nunc, eu rhoncus elit. Curabitur eget odio finibus, consectetur dolor at, efficitur
+        mauris.</p>
+</div>
+<div>
+    <a th:text="'Brand: ' + ${car.get().getBrand().getBrandName()}"></a>
+    <br>
+    <a th:text="'Model: ' + ${car.get().getModel()}"></a>
+    <br>
+    <a th:text="'Fuel: ' + ${car.get().getFuel()}"></a>
+    <br>
+    <a th:text="'Year: ' + ${car.get().getYear()}"></a>
+    <br>
+    <a th:text="'Price (€): ' + ${car.get().getPrice()}"></a>
+</div>
+</body>
+</html>
